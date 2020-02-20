@@ -1,4 +1,4 @@
-SKIP_FIRST_LINE = True
+SKIP_FIRST_LINE = False
 SEPARATOR = ' '
 
 def read(file_path):
