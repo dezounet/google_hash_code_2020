@@ -34,8 +34,8 @@ if __name__ == '__main__':
     else:
         # 'simple_score', 'capacity_score'
         objects = scan_books(objects, 'capacity_score')
+    output = objects
 
-    # sort books by increasing order in every library
     for lib in objects:
         lib.sort_books()
 

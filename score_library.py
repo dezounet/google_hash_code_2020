@@ -24,24 +24,25 @@ def score_libraries_by_capacity(libraries):
     return l_scores
 
 
-SCORE_FN = {
-    'simple_score': simple_libraries_score,
-    'capacity_score': score_libraries_by_capacity
-}
 
 
 def score_libraries(libraries, method_name):
     return SCORE_FN[method_name](libraries)
 
 
-def library_score(library, book_occurences, scanned_books):
+def library_score(library, book_occurences, scanned_books={}):
     b_scores = []
     library_book_occurences = []
     for index, b in enumerate(library.book_list):
         b_scores.append(b.score)
         library_book_occurences[index] = book_occurences[b.id]
 
-    numerator = sum([b_scores[i]/float(library_book_occurences[i]) for i in range(len(b_scores)) if library.book_list[i].id not in scanned_books])*library.books_per_day
+    numerator = sum([b_scores[i]/float(library_book_occurences[i]) for i in range(len(b_scores)) if library.book_list[i].id not in scanned_books])*library.books_per_day #*(day_left-library.signing)
     lib_score = numerator/float(len(b_scores))
     return lib_score
 
+SCORE_FN = {
+    'simple_score': simple_libraries_score,
+    'capacity_score': score_libraries_by_capacity,
+    'library_score': library_score
+}
