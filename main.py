@@ -27,12 +27,14 @@ if __name__ == '__main__':
     best_scores = get_best_score()
     best_scores.get(input_file, 0)
 
-    # 'simple_score', 'capacity_score'
-    output = scan_books(objects, 'capacity_score')
 
     # algo !
     if input_file == 'e_so_many_books.txt':
-        objects.sort(key=lambda x: x.signing, reverse = False)
+        objects.sort(key=lambda x: x.signing, reverse=False)
+
+    else:
+        # 'simple_score', 'capacity_score'
+        objects = scan_books(objects, 'capacity_score')
 
     filter_books(objects)
   
