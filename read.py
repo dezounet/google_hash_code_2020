@@ -9,6 +9,7 @@ def read(file_path):
 
     objects = []
     current_library = None
+    book_occurrences = list()
 
     with open(file_path, 'r') as file:
 
@@ -23,6 +24,7 @@ def read(file_path):
 
             elif IS_SECOND_LINE:
                 book_scores = line
+                book_occurrences = [0] * len(book_scores)
 
                 IS_SECOND_LINE = False
 
@@ -34,15 +36,18 @@ def read(file_path):
                         book_tmp = Book(book, book_scores[book])
                         current_library.book_list.append(book_tmp)
 
+                        # Update book_occcurrences table
+                        book_occurrences[book] += 1
+
                     objects.append(current_library)
 
                 else:
-                    _id = int(index/2)
+                    _id = int(index/2) - 1
                     _books = line[0]
                     _signing = line[1]
                     _books_per_day = line[2]
                     library = Library(_id, _books, _signing, _books_per_day)
                     current_library = library
 
-    return summary, book_scores, objects
+    return summary, book_scores, book_occurrences, objects
 

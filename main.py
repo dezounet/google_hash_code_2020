@@ -16,7 +16,7 @@ if __name__ == '__main__':
     assert os.path.exists(file_path)
 
     # Read data from input file
-    summary, book_scores, objects = read(file_path)
+    summary, book_scores, book_occurrences, objects = read(file_path)
 
     initial_best_score = -1
     current_best_score = 0
