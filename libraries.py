@@ -17,6 +17,8 @@ class Library:
         self.book_list = list()
         self.score = 0
 
+    def sort_books(self):
+        self.book_list.sort(key=lambda x: x.score, reverse = True)
 
     def library_set_score(self):
 

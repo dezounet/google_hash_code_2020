@@ -1,12 +1,13 @@
 import os
 import sys
+import random
 
 from config import INPUT_DIRECTORY
 from config import OUTPUT_DIRECTORY
 from read import read
 from score import get_best_score
 from write import write
-
+from scan import scan_books
 
 if __name__ == '__main__':
 
@@ -25,7 +26,11 @@ if __name__ == '__main__':
     best_scores = get_best_score()
     best_scores.get(input_file, 0)
 
-    # TODO - algo !
+    for lib in objects:
+        lib.sort_books()
+
+    # algo !
+    objects.sort(key=lambda x: x.books_per_day, reverse = True)
     output = objects
 
     # Save result to output file only if better solution found
