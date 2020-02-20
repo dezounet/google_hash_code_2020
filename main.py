@@ -28,6 +28,7 @@ if __name__ == '__main__':
     # TODO - algo !
     output = []
 
+
     # Save result to output file only if better solution found
     if initial_best_score < current_best_score:
         print('Better solution found for file %s! (+%s)' %
