@@ -14,13 +14,14 @@ class Library:
         self.books_number = book_number
         self.signing = signing
         self.books_per_day = books_per_day
-        self.book_list = dict()
+        self.book_list = list()
         self.score = 0
 
 
     def library_set_score(self):
 
         processed_score = 0
+
 
         self.score = processed_score
 
@@ -31,3 +32,4 @@ class Book:
     def __init__(self, id, score):
         self.id = id
         self.score = score
+        self.occurrences = 0

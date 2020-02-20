@@ -11,7 +11,6 @@ def read(file_path):
     current_library = None
 
     with open(file_path, 'r') as file:
-        first_line = True
 
         for index, line in enumerate(file):
             line = line.strip()
@@ -25,6 +24,7 @@ def read(file_path):
 
             elif IS_SECOND_LINE:
                 book_scores = line
+
                 IS_SECOND_LINE = False
 
             else:
