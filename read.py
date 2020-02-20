@@ -39,6 +39,7 @@ def read(file_path):
 
                 else:
                     library = Library()
+                    library.id = int(index/2)
                     library.books = line[0]
                     library.signing = line[1]
                     library.books_per_day = line[2]
