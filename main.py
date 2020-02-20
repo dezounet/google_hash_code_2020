@@ -4,6 +4,7 @@ import random
 
 from config import INPUT_DIRECTORY
 from config import OUTPUT_DIRECTORY
+from filter import filter_books
 from read import read
 from score import get_best_score
 from write import write
@@ -30,7 +31,11 @@ if __name__ == '__main__':
         lib.sort_books()
 
     # algo !
-    objects.sort(key=lambda x: x.books_per_day, reverse = True)
+    if input_file == 'e_so_many_books.txt':
+        objects.sort(key=lambda x: x.signing, reverse = False)
+
+    filter_books(objects)
+    
     output = objects
 
     # Save result to output file only if better solution found
