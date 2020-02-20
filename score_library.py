@@ -23,7 +23,8 @@ def score_libraries_by_capacity(libraries):
 
 
 SCORE_FN = {
-    'simple_score': simple_libraries_score
+    'simple_score': simple_libraries_score,
+    'capacity_score': score_libraries_by_capacity
 }
 
 

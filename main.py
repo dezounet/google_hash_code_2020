@@ -26,6 +26,7 @@ if __name__ == '__main__':
     best_scores = get_best_score()
     best_scores.get(input_file, 0)
 
+    # 'simple_score', 'capacity_score'
     output = scan_books(objects, 'simple_score')
 
     # Save result to output file only if better solution found
