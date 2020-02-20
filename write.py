@@ -6,5 +6,5 @@ def write(libraries, file_path):
             lib_id = library.id
             book_count = library.books_number
             f.write('%s %s\n' % (lib_id, book_count))
-            f.write(' '.join(library.book_list))
+            f.write(' '.join(map(lambda x: str(x.id), library.book_list)))
             f.write('\n')
