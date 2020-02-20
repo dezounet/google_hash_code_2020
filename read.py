@@ -37,7 +37,7 @@ def read(file_path):
                     objects.append(current_library)
 
                 else:
-                    _id = int(index/2)
+                    _id = int(index/2) - 1
                     _books = line[0]
                     _signing = line[1]
                     _books_per_day = line[2]
