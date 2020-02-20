@@ -16,7 +16,7 @@ if __name__ == '__main__':
     assert os.path.exists(file_path)
 
     # Read data from input file
-    data = read(file_path)
+    summary, book_scores, objects = read(file_path)
 
     initial_best_score = -1
     current_best_score = 0
@@ -26,7 +26,7 @@ if __name__ == '__main__':
     best_scores.get(input_file, 0)
 
     # TODO - algo !
-    output = []
+    output = objects
 
     # Save result to output file only if better solution found
     if initial_best_score < current_best_score:
