@@ -17,6 +17,13 @@ def simple_libraries_score(libraries):
     return l_scores
 
 
+def improved_libraries_score(libraries):
+    l_scores = []
+    for l in libraries:
+        l_scores.append(_simple_library_score(l) / float(l.signing))
+    return l_scores
+
+
 def score_libraries_by_capacity(libraries):
     l_scores = []
     for l in libraries:
@@ -26,7 +33,8 @@ def score_libraries_by_capacity(libraries):
 
 SCORE_FN = {
     'simple_score': simple_libraries_score,
-    'capacity_score': score_libraries_by_capacity
+    'capacity_score': score_libraries_by_capacity,
+    'improved_simple_score': improved_libraries_score
 }
 
 

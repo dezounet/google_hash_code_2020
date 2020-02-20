@@ -27,19 +27,21 @@ if __name__ == '__main__':
     best_scores = get_best_score()
     best_scores.get(input_file, 0)
 
-    # algo !
-    if input_file == 'e_so_many_books.txt':
-        objects.sort(key=lambda x: x.signing, reverse=False)
-
-    else:
-        # 'simple_score', 'capacity_score'
-        objects = scan_books(objects, 'capacity_score')
+    # # algo !
+    # if input_file == 'e_so_many_books.txt':
+    #     objects.sort(key=lambda x: x.signing, reverse=False)
+    #
+    # else:
+    #     # 'simple_score', 'capacity_score'
+    objects = scan_books(objects, 'improved_simple_score')
 
     # sort books by increasing order in every library
     for lib in objects:
         lib.sort_books()
 
     filter_books(objects)
+
+    output = objects
 
     # Save result to output file only if better solution found
     if initial_best_score < current_best_score:
