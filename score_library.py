@@ -1,6 +1,5 @@
 #!/usr/bin/env python
 
-import numpy as np
 
 def _simple_library_score(library):
     b_scores = []
