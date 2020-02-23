@@ -7,6 +7,7 @@ from config import OUTPUT_DIRECTORY
 from filter import filter_books
 from read import read
 from score import get_best_score
+from score_library import iterative_select_libraries
 from write import write
 from scan import scan_books
 
@@ -32,8 +33,9 @@ if __name__ == '__main__':
     #     objects.sort(key=lambda x: x.signing, reverse=False)
     #
     # else:
-    #     # 'simple_score', 'capacity_score'
-    objects = scan_books(objects, 'improved_simple_score')
+    #     # 'simple_score', 'capacity_score', 'iterative_select','improved_simple_score'
+    # objects = scan_books(objects, 'iterative_select', total_days=summary[-1])
+    objects = iterative_select_libraries(objects, total_days=summary[-1])
 
     # sort books by increasing order in every library
     for lib in objects:
